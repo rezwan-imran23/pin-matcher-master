@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pin Generator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="pin-generator half-width">
+                   <input id="pinCount" class="form-control" type="text" >
+                   <button onclick="yourOnclick()" id="pinBtn"  class="generate-btn">Generate Pin</button>
+                </div>
+                    
+            </div>
+            <div class="col-md-6">
+                <div class="input-section half-width">
+                    <input id="calInput" class="form-control" type="text">
+                    <div class="numbers">
+                        <div class="calc-body">
+                            <div class="calc-button-row">
+                              <div onclick="click7()" id="seven" class="button">7</div>
+                              <div onclick="click8()" id="eight" class="button">8</div>
+                              <div onclick="click9()" id="nine" class="button">9</div>
+                            </div>
+                            <div class="calc-button-row">
+                              <div onclick="click4()" id="four" class="button">4</div>
+                              <div onclick="click5()" id="five" class="button">5</div>
+                              <div onclick="click6()" id="six" class="button">6</div>
+                            </div>
+                            <div class="calc-button-row">
+                              <div onclick="click1()" id="one" class="button">1</div>
+                              <div onclick="click2()" id="two" class="button">2</div>
+                              <div onclick="click3()" id="three" class="button">3</div>
+                            </div>
+                            <div class="calc-button-row">
+                                <div onclick="individualClear()" id="back" class="button"><</div>
+                                <div onclick="click0()" id="zero" class="button">0</div>
+                                <div onclick="allClear()" id="cancel" class="button">C</div>
+                            </div>
+                            <div>
+                                <!-- <button id="submitFile" type="submit" class="submit-btn">Submit</button> -->
+                                <button onclick="submitBtn()"  id="submitFile" type="submit" class="submit-btn">Submit</button>
+                                <p class="action-left">3 try left</p>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="notify-section">
+            <p id="numberUnMatched" class="notify">❌ Pin Didn't Match, Please try again</p>
+            <p id="numberMatched" class="notify">✅ Pin Matched... Secret door is opening for you</p>
+        </div>
+    </div>
+
+    <script>
+
+    
+
+    
+            function yourOnclick() {
+            const pinInput = document.getElementById("pinCount");
+            const randomPin = Math.floor(Math.random() * 9000)+1000;
+            pinInput.value = randomPin;
+        }
+        
+
+
+        
+
+        
+       function click7() {    
+       const calculatorNumber =  document.getElementById("seven").innerText;
+       const calDisplay = document.getElementById("calInput");
+       calDisplay.value += calculatorNumber;    
+ 
+    }
+
+       function click8() {    
+       const calculatorNumber =  document.getElementById("eight").innerText;
+       const calDisplay = document.getElementById("calInput");
+       calDisplay.value += calculatorNumber;    
+ 
+    }
+
+       function click9() {    
+       const calculatorNumber =  document.getElementById("nine").innerText;
+       const calDisplay = document.getElementById("calInput");
+       calDisplay.value += calculatorNumber;    
+ 
+    }
+
+    function click4() {    
+       const calculatorNumber =  document.getElementById("four").innerText;
+       const calDisplay = document.getElementById("calInput");
+       calDisplay.value += calculatorNumber;    
+ 
+    }
+    function click5() {    
+       const calculatorNumber =  document.getElementById("five").innerText;
+       const calDisplay = document.getElementById("calInput");
+       calDisplay.value += calculatorNumber;    
+ 
+    }
+    function click6() {    
+       const calculatorNumber =  document.getElementById("six").innerText;
+       const calDisplay = document.getElementById("calInput");
+       calDisplay.value += calculatorNumber;    
+ 
+    }
+
+    function click1() {    
+       const calculatorNumber =  document.getElementById("one").innerText;
+       const calDisplay = document.getElementById("calInput");
+       calDisplay.value += calculatorNumber;    
+ 
+    }
+    function click2() {    
+       const calculatorNumber =  document.getElementById("two").innerText;
+       const calDisplay = document.getElementById("calInput");
+       calDisplay.value += calculatorNumber;    
+ 
+    }
+    function click3() {    
+       const calculatorNumber =  document.getElementById("three").innerText;
+       const calDisplay = document.getElementById("calInput");
+       calDisplay.value += calculatorNumber;    
+ 
+    }
+
+
+
+   
+    function click0() {    
+       const calculatorNumber =  document.getElementById("zero").innerText;
+       const calDisplay = document.getElementById("calInput");
+       calDisplay.value += calculatorNumber;    
+ 
+    }
+    
+    function allClear(){
+            document.getElementById("calInput").value = '';
+        }
+
+        function individualClear(){
+        const calDisplay = document.getElementById("calInput");
+        calDisplay.value = calDisplay.value.slice(0, - 1);
+           
+        }
+
+
+        function submitBtn() {
+            const randomNumber = parseInt(document.getElementById("pinCount").value);
+            const calDisplay = parseInt(document.getElementById("calInput").value);
+           if (randomNumber==calDisplay) {
+            const matchNumber = document.getElementById ("numberMatched");
+            matchNumber.style.display = "block";
+           } else {
+               const unMatchNumber = document.getElementById ("numberUnMatched");
+                unMatchNumber.style.display = "block";
+
+                }
+        }
+
+
+        // if (randomPin == calculatorNumber ) {
+
+        //     const matchNumber = document.getElementById ("numberMatched");
+        //     matchNumber.style.display = "block";
+            
+        // } else {
+
+        //     const unMatchNumber = document.getElementById ("numberUnMatched");
+        //     unMatchNumber.style.display = "block";
+            
+        // }
+    
+
+        
+
+
+        
+
+        // document.getElementById("pinBtn").addEventListener("click",function(){
+
+        //     const pinInput = document.getElementById("pinCount");
+            
+        //     const randomPin = Math.floor(Math.random() * 9000)+1000;
+        //     pinInput.value = randomPin;
+                 
+        // })
+            
+                 
+        // })
+    
+    
+
+       
+    </script>
+</body>
+</html>
